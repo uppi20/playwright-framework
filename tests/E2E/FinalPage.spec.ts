@@ -54,4 +54,12 @@ test.describe("Final Page Validation", () => {
         await finalPage.clickonBackHomeButton()
         await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html")
     })
+      test("Validate BackHomeButton 1",async({page})=>{
+        await finalPage.clickonBackHomeButton()
+        await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html")
+    })
+      test("Validate BackHomeButton 2",async({page})=>{
+        await finalPage.clickonBackHomeButton()
+        await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html")
+    })
 })
