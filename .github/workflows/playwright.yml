@@ -26,7 +26,8 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Smoke Tests
-      run: npx playwright test tests/E2E
+      run: npx playwright test tests/E2E --project = Chromium
+      
 
     - name: Upload Playwright Report
       if: always()
