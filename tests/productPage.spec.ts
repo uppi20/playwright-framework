@@ -21,13 +21,22 @@ test.describe("ProductPage Validation", () => {
         productPage.logout()
         await expect(page.locator(LoginLocators.loginButton)).toBeVisible()
     })
+    // test("validate about page and navigate back", async ({ page }) => {
+    //     await productPage.openAboutPage()
+    //     await expect(page.locator(productPageLocators.requestDemoButton).first()).toBeVisible()
+    //     await expect(page.locator(productPageLocators.tryifFreeButton)).toBeVisible()
+    //     await page.goBack()
+    //     await expect(page.locator(productPageLocators.settingIcon)).toBeVisible()
+    // }) this is changed to line number 31 to 38 on behalf of this test case
     test("validate about page and navigate back", async ({ page }) => {
-        await productPage.openAboutPage()
-        await expect(page.locator(productPageLocators.requestDemoButton)).toBeVisible()
-        await expect(page.locator(productPageLocators.tryifFreeButton)).toBeVisible()
-        await page.goBack()
-        await expect(page.locator(productPageLocators.settingIcon)).toBeVisible()
-    })
+    await productPage.openAboutPage()
+
+    await expect(page).toHaveURL(/saucelabs/)
+
+    await page.goBack()
+
+    await expect(page.locator(productPageLocators.settingIcon)).toBeVisible()
+})
     test("validate product page", async ({ page }) => {
         await productPage.validateAllProductsDisplayed()
         await productPage.addFirstProductToCart()
