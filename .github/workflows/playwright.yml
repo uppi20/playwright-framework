@@ -59,4 +59,6 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright tests (Shard ${{ matrix.shard }})
-      run: npx playwright test --shard=${{ matrix.shard }}/4
+      run: npx playwright test --shard=${{ matrix.shard }}/
+      env:
+       PLAYWRIGHT_HEADLESS: true
